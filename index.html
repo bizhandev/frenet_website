@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Frenet — Pinterest Analytics for Sellers</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Frenet is a lightweight analytics tool that uses the Pinterest API to help marketplace sellers measure the performance of their own Pins and Ads." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>📊</text></svg>">
+  <style>
+    :root { --bg:#fff; --ink:#0f172a; --muted:#475569; --line:#e2e8f0; --brand:#2d8cff; }
+    * { box-sizing: border-box }
+    body { margin:0; font-family: ui-sans-serif,system-ui,Segoe UI,Roboto,Arial; color:var(--ink); background:var(--bg); line-height:1.6 }
+    header, section, footer { padding: 24px 20px; }
+    .container { max-width: 980px; margin: 0 auto; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-top:12px }
+    .nav img { height:40px; }
+    .btn { display:inline-block; padding:10px 16px; border-radius:10px; border:1px solid var(--line); text-decoration:none; color:var(--ink) }
+    .btn.primary { background:var(--brand); color:#fff; border-color:var(--brand) }
+    .hero { display:grid; grid-template-columns:1.15fr .85fr; gap:28px; align-items:center; padding:40px 0 10px }
+    .hero h1 { font-size: clamp(28px, 4vw, 44px); line-height:1.15; margin:0 0 10px }
+    .hero p.lead { color:var(--muted); font-size: clamp(16px, 2vw, 18px) }
+    .cardgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:16px }
+    .card { border:1px solid var(--line); border-radius:16px; padding:16px }
+    .card h3 { margin:0 0 6px; font-size:18px }
+    .muted { color:var(--muted) }
+    .how { display:grid; grid-template-columns:repeat(3,1fr); gap:16px }
+    .step { border:1px dashed var(--line); border-radius:14px; padding:16px; background:#fafafa }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#eef2ff; padding:2px 6px; border-radius:6px; border:1px solid #c7d2fe }
+    .two { display:grid; grid-template-columns:1fr 1fr; gap:20px }
+    .panel { border:1px solid var(--line); border-radius:14px; padding:16px }
+    footer { border-top:1px solid var(--line); margin-top:28px; }
+    .links a { color:var(--brand); text-decoration:none }
+    @media (max-width:900px){ .hero{grid-template-columns:1fr} .cardgrid,.how,.two{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header class="container nav">
+    <div style="display:flex;align-items:center;gap:12px">
+      <img src="/docs/assets/logo.png" alt="Frenet logo" />
+      <strong>Frenet</strong>
+    </div>
+    <nav class="links" aria-label="primary">
+      <a class="btn" href="#integration">Integration</a>
+      <a class="btn" href="#privacy">Privacy</a>
+      <a class="btn primary" href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="container hero">
+    <div>
+      <h1>Pinterest analytics for marketplace sellers</h1>
+      <p class="lead">
+        Frenet helps you understand how your <strong>own</strong> Pins and Ads perform — impressions, clicks, saves, CTR, conversions and more —
+        so you can focus ad spend on what really converts.
+      </p>
+      <div style="display:flex;gap:12px;margin-top:8px">
+        <a class="btn primary" href="#integration">How it works</a>
+        <a class="btn" href="./privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="panel">
+      <h3 style="margin-top:0">What you get</h3>
+      <div class="cardgrid">
+        <div class="card">
+          <h3>Organic performance</h3>
+          <p class="muted">Engagement of your Pins and boards: impressions, clicks, saves, CTR by date and granularity.</p>
+        </div>
+        <div class="card">
+          <h3>Ads reporting</h3>
+          <p class="muted">Campaign, ad group and ad metrics (where Ads are available): spend, clicks, conversions, ROAS.</p>
+        </div>
+        <div class="card">
+          <h3>Simple exports</h3>
+          <p class="muted">CSV/Sheets-friendly tables for quick sharing and decision-making.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2 id="integration">Integration with Pinterest API</h2>
+    <div class="two">
+      <div class="panel">
+        <h3>Data sources</h3>
+        <ul class="muted">
+          <li>Organic: user account, boards, Pins analytics (read-only).</li>
+          <li>Ads: ad account reporting endpoints (read-only), when your account is in a supported country.</li>
+          <li>We only access data <em>authorized by you</em> via OAuth.</li>
+        </ul>
+        <p class="muted">Frenet does not post content, change bids or manage campaigns.</p>
+      </div>
+      <div class="panel">
+        <h3>How it works (3 steps)</h3>
+        <div class="how">
+          <div class="step"><span class="kbd">1</span> Authorize Frenet via Pinterest OAuth (scopes: read-only).</div>
+          <div class="step"><span class="kbd">2</span> Select what to fetch: organic or ads reports, date range &amp; granularity.</div>
+          <div class="step"><span class="kbd">3</span> View dashboards or export CSV/Sheets. Revoke access any time.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2 id="privacy">Privacy & Compliance</h2>
+    <div class="two">
+      <div class="panel">
+        <h3>Read-only & minimal</h3>
+        <p class="muted">We request only the scopes required for analytics. Tokens are encrypted at rest, traffic over TLS.</p>
+        <p class="muted">You can revoke access in your Pinterest settings at any time.</p>
+      </div>
+      <div class="panel">
+        <h3>Policies</h3>
+        <p class="muted">See our <a href="./privacy-policy.html">Privacy Policy</a> and <a href="./data-deletion.html">Data Deletion</a> notice.</p>
+        <p class="muted">Ads reporting is available for ad accounts in Pinterest Ads supported regions.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container" id="contact">
+    <div class="two">
+      <div>
+        <h3 style="margin:0">Company</h3>
+        <p class="muted">Frenet — tools for marketplace sellers.</p>
+      </div>
+      <div>
+        <h3 style="margin:0">Contact</h3>
+        <p class="muted">
+          Email: <a href="mailto:info@frenet-company.com">info@frenet-company.com</a><br/>
+          Website: <a href="https://bizhandev.github.io/frenet_website/">bizhandev.github.io/frenet_website/</a>
+        </p>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:8px">© <span id="y"></span> Frenet. All rights reserved.</p>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
